@@ -4,316 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mrwan Amr Mohamed | AI Portfolio</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Mrwan Amr Mohamed, AI & data science student building computer vision and embedded systems. Competitions, projects and certificates.">
+    <meta name="theme-color" content="#050806">
+    <meta property="og:title" content="Mrwan Amr Mohamed | AI Portfolio">
+    <meta property="og:description" content="AI, computer vision and embedded systems. Competitions, projects and certificates.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<footer id="contact">
-    <div class="footer-content">
-        <h3>Let's Connect</h3>
-        <p>Ready to discuss technical challenges or research collaborations?</p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/mrwan-amr-8451a6348/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/mrwanamr65" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.instagram.com/mrwan_.amr/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=100086223607822" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" onclick="copyEmail(event, 'mrwanamr.dev@gmail.com')" title="Click to copy or send email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://discord.com/users/mrwan_amr22" target="_blank"><i class="fa-brands fa-discord"></i></a>
-            <a href="https://drive.google.com/file/d/1HvZtMxt2memnWJC3U62ns-nmF0f5cGxJ/view?usp=drive_link" target="_blank" title="Download CV"><i class="fa-solid fa-file-pdf"></i></a>
-        </div>
-        <p class="copyright">© 2026 Mrwan Amr | System Architecture Portfolio</p>
-    </div>
-</footer>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
-    <header>
-        <div class="logo"><i class="fa-solid fa-circle-nodes"></i> Mrwan Amr</div>
-        <nav>
-            <ul>
-                <li><a href="#hero"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li><a href="#skills"><i class="fa-solid fa-cubes"></i> Matrix</a></li>
-                <li><a href="#competitions"><i class="fa-solid fa-trophy"></i> Challenges</a></li>
-                <li><a href="#projects"><i class="fa-solid fa-terminal"></i> Repos</a></li>
-                <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Academy</a></li>
-            </ul>
+    <header class="topbar">
+        <a class="logo" href="#hero" aria-label="Mrwan Amr, home"><span class="logo-chip"></span>MRWAN<b>.AI</b></a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav"><i class="fa-solid fa-bars"></i></button>
+        <nav id="site-nav" aria-label="Main">
+            <a href="#hero"><span>00</span>Boot</a>
+            <a href="#competitions"><span>01</span>Missions</a>
+            <a href="#projects"><span>02</span>Builds</a>
+            <a href="#skills"><span>03</span>Stack</a>
+            <a href="#education"><span>04</span>Certs</a>
+            <a href="#contact"><span>05</span>Ping</a>
         </nav>
     </header>
 
-    <section id="hero">
-        <div class="hero-badge" id="hero-badge-title">
-            <i class="fa-solid fa-atom fa-spin" style="color: var(--neon-cyan);"></i> Loading...
-        </div>
-        <h1 id="hero-name">Loading...</h1>
-        <p id="hero-summary">Architecting systemic pipelines across data science structures and hardware engineering interfaces.</p>
-        <div class="btn-group">
-            <a href="#competitions" class="btn"><i class="fa-solid fa-arrow-trend-up"></i> Explore Challenges</a>
-            <a href="#projects" class="btn btn-secondary"><i class="fa-brands fa-git-alt"></i> View Tree</a>
-        </div>
-    </section>
+    <main id="main">
+        <section id="hero">
+            <canvas id="net" aria-hidden="true"></canvas>
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <p class="boot" id="hero-badge-title">&gt; AI &amp; Data Science Student</p>
+                    <h1 id="hero-name" aria-label="Mrwan Amr Mohamed">Mrwan Amr Mohamed</h1>
+                    <p class="role-line"><span class="prompt">$</span> <span id="typed"></span><span class="caret"></span></p>
+                    <p class="lead" id="hero-summary"></p>
+                    <div class="btn-group">
+                        <a href="#competitions" class="btn btn-primary"><i class="fa-solid fa-play"></i> Run missions</a>
+                        <a href="#contact" class="btn btn-ghost">Open channel</a>
+                    </div>
+                </div>
+                <aside class="hud" aria-label="Live training visual">
+                    <div class="hud-bar"><i></i><i></i><i></i><span>train.py</span><em id="epoch">epoch 001</em></div>
+                    <canvas id="loss" width="520" height="260" aria-hidden="true"></canvas>
+                    <ul class="hud-rows" id="hud-rows"></ul>
+                </aside>
+            </div>
+            <ul class="stats" id="stats" aria-label="Highlights"></ul>
+            <a class="scroll-hint" href="#competitions" aria-label="Scroll to missions"><i class="fa-solid fa-chevron-down"></i></a>
+        </section>
 
-    <section id="skills">
-        <h2 class="section-title"><i class="fa-solid fa-brain"></i> Technical Matrix</h2>
-        <p class="section-subtitle">Deep customization across machine learning pipelines and structural data analytics framework execution.</p>
-        <div class="skills-grid" id="dynamic-skills"></div>
-    </section>
+        <section id="competitions" class="block">
+            <div class="block-head"><span class="tag">/01</span><h2>Missions</h2><p>Competitions and hackathons. Drag or scroll sideways, newest first.</p></div>
+            <div class="rail-wrap">
+                <div class="rail" id="dynamic-competitions" tabindex="0" aria-label="Competitions, scroll horizontally"></div>
+                <div class="rail-ctrl">
+                    <button type="button" id="rail-prev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+                    <div class="rail-bar"><i id="rail-fill"></i></div>
+                    <button type="button" id="rail-next" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
 
-    <section id="competitions">
-        <h2 class="section-title"><i class="fa-solid fa-medal"></i> Elite Innovations & Challenges</h2>
-        <p class="section-subtitle">A chronological documentation of global and national scale ecosystem hackathons and research validation.</p>
-        <div class="competition-container" id="dynamic-competitions"></div>
-    </section>
+        <section id="projects" class="block">
+            <div class="block-head"><span class="tag">/02</span><h2>Builds</h2><p>Things that run. Source on GitHub.</p></div>
+            <div class="projects-grid" id="dynamic-projects"></div>
+            <a id="main-github-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-ghost all-repos"><i class="fa-brands fa-github"></i> All repositories</a>
+        </section>
 
-    <section id="projects">
-        <h2 class="section-title"><i class="fa-solid fa-folder-tree"></i> Open Source Deployments</h2>
-        <p class="section-subtitle">Direct endpoints to active development repositories and localized software codebases.</p>
-        
-        <div class="github-hero-card">
-            <i class="fa-brands fa-github-alt"></i>
-            <h3>Version Control Core Terminal</h3>
-            <p style="color: var(--text-secondary); margin: 10px 0 25px; font-size: 15px;">Monitor active commit trees, production repositories, and modular infrastructure deployments directly via GitHub.</p>
-            <a id="main-github-btn" href="#" target="_blank" class="btn"><i class="fa-solid fa-code-branch"></i> Access Workspace Environment</a>
-        </div>
+        <section id="skills" class="block">
+            <div class="block-head"><span class="tag">/03</span><h2>Stack</h2><p>Pick a chip to read what is on it.</p></div>
+            <div class="board">
+                <div class="chips-col" id="skill-tabs" role="tablist" aria-label="Skill areas"></div>
+                <div class="traces" aria-hidden="true"><svg viewBox="0 0 120 400" preserveAspectRatio="none"><path d="M0 50 H60 V200 H120"/><path d="M0 150 H40 V200 H120"/><path d="M0 250 H40 V200 H120"/><path d="M0 350 H60 V200 H120"/></svg></div>
+                <div class="skill-panel" id="skill-panel" role="tabpanel" aria-live="polite"></div>
+            </div>
+        </section>
 
-        <div class="projects-grid" id="dynamic-projects"></div>
-    </section>
-
-    <section id="education">
-        <!-- الجزء الأول: الشهادات الموثقة (Visual Grid Layout) -->
-        <h2 class="section-title"><i class="fa-solid fa-award"></i> Validated Certifications</h2>
-        <p class="section-subtitle">Institutional verified credentials and technical completions.</p>
-        <div class="certs-visual-grid" id="dynamic-certs-visual"></div>
-
-        <!-- الجزء الثاني: الكورسات والمسارات التعليمية (YouTube Links) -->
-        <div style="margin-top: 80px;">
-            <h2 class="section-title"><i class="fa-brands fa-youtube" style="color: #ef4444;"></i> Theoretical & Research Tracks</h2>
-            <p class="section-subtitle">Engineering syllabus and conceptual research deep dives.</p>
+        <section id="education" class="block">
+            <div class="block-head"><span class="tag">/04</span><h2>Certs</h2><p>Verified credentials and completed programs.</p></div>
+            <div class="certs-visual-grid" id="dynamic-certs-visual"></div>
+            <button type="button" class="btn btn-ghost" id="certs-more" hidden>Show all</button>
+            <div class="sub-head"><h3><i class="fa-brands fa-youtube"></i> Learning tracks</h3></div>
             <div class="yt-list" id="dynamic-yt"></div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-card">
+            <p class="boot">&gt; ping mrwan --open-channel</p>
+            <h2>Let's build the next thing.</h2>
+            <p class="muted-lg">Technical challenges, research and competitions. Reply time: fast.</p>
+            <div class="social-links">
+                <a aria-label="LinkedIn" href="https://www.linkedin.com/in/mrwan-amr-8451a6348/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                <a aria-label="GitHub" href="https://github.com/mrwanamr65" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                <a aria-label="Instagram" href="https://www.instagram.com/mrwan_.amr/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=100086223607822" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                <a aria-label="Copy email address" href="mailto:mrwanamr.dev@gmail.com" onclick="copyEmail(event, 'mrwanamr.dev@gmail.com')" title="Click to copy email"><i class="fa-solid fa-envelope"></i></a>
+                <a aria-label="Discord" href="https://discord.com/users/mrwan_amr22" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i></a>
+                <a aria-label="Download CV" href="https://drive.google.com/file/d/1HvZtMxt2memnWJC3U62ns-nmF0f5cGxJ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" title="Download CV"><i class="fa-solid fa-file-pdf"></i></a>
+            </div>
         </div>
-    </section>
+        <p class="copyright">© 2026 Mrwan Amr · built with sensors, not just pixels</p>
+    </footer>
 
-    <div class="lightbox-modal" id="lightbox">
-        <span class="lightbox-close" id="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" src="" alt="Cinematic View">
+    <div class="lightbox-modal" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close preview">&times;</button>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Enlarged preview">
     </div>
-
-    <script>
-        // Smooth Cursor Ambient Light Core Engine
-        document.addEventListener('mousemove', e => {
-            document.querySelectorAll('.skill-card, .comp-row, .github-hero-card, .project-card, .cert-card-visual').forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-                card.style.background = `var(--accent-glow), var(--bg-surface)`;
-            });
-        });
-
-        // Skill-to-Icon Engine Map
-        const skillIcons = {
-            ai_deep_learning: 'fa-microchip',
-            computer_vision: 'fa-eye',
-            web_integration: 'fa-server',
-            embedded_iot: 'fa-gears'
-        };
-
-        function generateSmartGallery(images, title) {
-            if (!images || images.length === 0) return '';
-            const fallback = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400';
-
-            if (images.length === 1) {
-                return `
-                    <div class="gallery-single-img">
-                        <img src="${images[0]}" alt="${title}" onerror="this.src='${fallback}'" onclick="openCinematicView(this.src)">
-                    </div>
-                `;
-            }
-
-            if (images.length === 2) {
-                return `
-                    <div class="gallery-dual-images">
-                        <img src="${images[0]}" alt="${title}" onerror="this.src='${fallback}'" onclick="openCinematicView(this.src)">
-                        <img src="${images[1]}" alt="${title}" onerror="this.src='${fallback}'" onclick="openCinematicView(this.src)">
-                    </div>
-                `;
-            }
-
-            const thumbnailsHtml = images.map((img, idx) => `
-                <div class="thumb-wrapper ${idx === 0 ? 'active-thumb' : ''}" onclick="swapGalleryImages(this)">
-                    <img src="${img}" alt="${title}" onerror="this.src='${fallback}'">
-                </div>
-            `).join('');
-
-            return `
-                <div class="gallery-interactive-suite">
-                    <div class="main-image-wrapper">
-                        <img class="main-gallery-img" src="${images[0]}" alt="${title}" onerror="this.src='${fallback}'" onclick="openCinematicView(this.src)">
-                    </div>
-                    <div class="thumbnail-strip">
-                        ${thumbnailsHtml}
-                    </div>
-                </div>
-            `;
-        }
-
-        function swapGalleryImages(thumbWrapper) {
-            const suite = thumbWrapper.closest('.gallery-interactive-suite');
-            const mainImg = suite.querySelector('.main-gallery-img');
-            const thumbImg = thumbWrapper.querySelector('img');
-
-            if (mainImg.src === thumbImg.src) return;
-
-            mainImg.style.opacity = '0';
-            thumbImg.style.opacity = '0';
-
-            setTimeout(() => {
-                const currentMainSrc = mainImg.src;
-                mainImg.src = thumbImg.src;
-                thumbImg.src = currentMainSrc;
-
-                suite.querySelectorAll('.thumb-wrapper').forEach(t => t.classList.remove('active-thumb'));
-                thumbWrapper.classList.add('active-thumb');
-
-                mainImg.style.opacity = '1';
-                thumbImg.style.opacity = '1';
-            }, 200);
-        }
-
-        async function runPortfolioPipeline() {
-            try {
-                const response = await fetch('data.json');
-                const data = await response.json();
-
-                // Bind Profile Metadata
-                document.getElementById('hero-name').innerText = data.personal.name;
-                document.getElementById('hero-summary').innerText = data.personal.summary;
-                document.getElementById('hero-badge-title').innerHTML = `<i class="fa-solid fa-graduation-cap" style="color: var(--neon-cyan);"></i> ${data.personal.title}`;
-                document.getElementById('main-github-btn').href = data.personal.links.github;
-
-                // Render Technical Matrix
-                const skillsContainer = document.getElementById('dynamic-skills');
-                Object.keys(data.skills).forEach(key => {
-                    const block = data.skills[key];
-                    const iconClass = skillIcons[key] || 'fa-code';
-                    const card = document.createElement('div');
-                    card.className = 'skill-card';
-                    card.innerHTML = `
-                        <h3><i class="fa-solid ${iconClass}"></i> ${block.title}</h3>
-                        <p>${block.description}</p>
-                        <ul class="skill-details-list">
-                            ${block.items.map(i => `<li>${i}</li>`).join('')}
-                        </ul>
-                    `;
-                    skillsContainer.appendChild(card);
-                });
-
-                // Render Competitions
-                const compContainer = document.getElementById('dynamic-competitions');
-                data.competitions.forEach(c => {
-                    const row = document.createElement('div');
-                    row.className = 'comp-row';
-                    row.style.borderLeft = `4px solid transparent`;
-                    row.style.borderImage = `${c.gradient} 1`;
-
-                    row.innerHTML = `
-                        <div class="comp-info">
-                            <h3><i class="fa-solid fa-trophy" style="color: var(--neon-cyan);"></i> ${c.title}</h3>
-                            <div class="comp-meta">
-                                <span><i class="fa-solid fa-shield-halved"></i> ${c.role}</span>
-                                <span><i class="fa-solid fa-clock"></i> ${c.timeline}</span>
-                            </div>
-                            <p class="comp-desc"><strong>Project Tree [${c.project}]:</strong> ${c.description}</p>
-                        </div>
-                        <div style="width: 100%;">
-                            ${generateSmartGallery(c.images, c.title)}
-                        </div>
-                    `;
-                    compContainer.appendChild(row);
-                });
-
-                // Render Repositories
-                const projectsContainer = document.getElementById('dynamic-projects');
-                data.projects.forEach(p => {
-                    const pCard = document.createElement('div');
-                    pCard.className = 'project-card';
-                    pCard.innerHTML = `
-                        <h4><i class="fa-solid fa-cube"></i> ${p.title}</h4>
-                        <p style="font-size:13px; color:var(--text-secondary); margin: 10px 0 20px;">${p.description}</p>
-                        <a href="${p.github_link}" target="_blank" class="cert-link-btn">Source Code <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    `;
-                    projectsContainer.appendChild(pCard);
-                });
-
-                // Render Validated Certifications (Visual Layout)
-                const certsContainer = document.getElementById('dynamic-certs-visual');
-                
-                // الحل: تشفير الـ SVG عشان علامات التنصيص (Quotes) متكسرش كود الـ HTML
-                const rawSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" style="background:#111827"><text x="50%" y="50%" fill="#4b5563" font-family="sans-serif" font-size="16" text-anchor="middle" dy=".3em">Credential Image Pending</text></svg>';
-                const fallbackCertImg = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(rawSvg);
-                
-                data.certificates.forEach(cert => {
-                    const cItem = document.createElement('div');
-                    cItem.className = 'cert-card-visual';
-                    
-                    cItem.innerHTML = `
-                        <img src="${cert.image || fallbackCertImg}" alt="${cert.title}" onerror="this.onerror=null; this.src='${fallbackCertImg}';" onclick="openCinematicView(this.src)">
-                        <div class="cert-info">
-                            <h4>${cert.title}</h4>
-                            <span><i class="fa-solid fa-calendar-days"></i> ${cert.date}</span>
-                        </div>
-                        <a href="${cert.link}" target="_blank" class="cert-link-btn">View Credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    `;
-                    certsContainer.appendChild(cItem);
-                });
-
-                // Render Theoretical Framework Channels (YouTube)
-                const ytContainer = document.getElementById('dynamic-yt');
-                data.youtube_courses.forEach(course => {
-                    const yItem = document.createElement('div');
-                    yItem.className = 'yt-item';
-                    yItem.innerHTML = `
-                        <div class="yt-title-container">
-                            <i class="fa-brands fa-youtube"></i>
-                            <div class="yt-info">
-                                <span style="font-size:14px; font-weight:500;">${course.title}</span>
-                            </div>
-                        </div>
-                        <a href="${course.link}" target="_blank" class="yt-link-btn">Access Syllabus <i class="fa-solid fa-up-right-from-square"></i></a>
-                    `;
-                    ytContainer.appendChild(yItem);
-                });
-
-            } catch (err) {
-                console.error("Pipeline compilation breakdown context exception:", err);
-            }
-        }
-
-        // Image View Lightbox Controls
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        
-        function openCinematicView(src) {
-            lightboxImg.src = src;
-            lightbox.classList.add('active');
-        }
-
-        document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('active'));
-        lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('active'); });
-
-        // Execute Engine
-        runPortfolioPipeline();
-        // دالة لنسخ الإيميل أو فتح تطبيق البريد
-        function copyEmail(e, email) {
-            e.preventDefault();
-            // محاولة نسخ الإيميل
-            navigator.clipboard.writeText(email).then(() => {
-                alert("Email copied to clipboard: " + email);
-            }).catch(() => {
-                // إذا فشل النسخ، نفتح تطبيق الإيميل
-                window.location.href = "mailto:" + email;
-            });
-        }
-        </script>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
 </body>
 </html>
