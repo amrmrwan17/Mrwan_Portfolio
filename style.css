@@ -96,12 +96,12 @@ a { color: inherit; }
 .chip { font-family: var(--mono); display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 6px; font-size: 12px; color: var(--muted); border: 1px solid var(--line); background: rgba(255,255,255,.02); }
 .chip-hot { color: #1a1100; background: var(--a); border-color: var(--a); font-weight: 700; }
 .gal img { width: 100%; border-radius: 10px; border: 1px solid var(--line); cursor: zoom-in; }
-.gal-1 img { aspect-ratio: 16/10; object-fit: cover; }
-.gal-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; } .gal-2 img { aspect-ratio: 4/3; object-fit: cover; }
-.gal-main { border-radius: 10px; overflow: hidden; background: #000; } .gal-main img { aspect-ratio: 16/10; object-fit: cover; border: 0; border-radius: 0; }
+.gal-1 img { height: auto; max-height: 520px; object-fit: contain; background: #050a07; }
+.gal-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; } .gal-2 img { height: auto; align-self: start; object-fit: contain; }
+.gal-main { border-radius: 10px; overflow: hidden; background: #000; } .gal-main img { aspect-ratio: 4/3; object-fit: contain; display: block; border: 0; border-radius: 0; }
 .gal-thumbs { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px; margin-top: 6px; }
 .thumb { aspect-ratio: 4/3; border: 2px solid transparent; border-radius: 7px; overflow: hidden; padding: 0; background: #000; opacity: .55; cursor: pointer; transition: .2s; }
-.thumb img { width: 100%; height: 100%; object-fit: cover; border: 0; border-radius: 0; cursor: pointer; }
+.thumb img { width: 100%; height: 100%; object-fit: contain; border: 0; border-radius: 0; cursor: pointer; }
 .thumb.on, .thumb:hover { opacity: 1; border-color: var(--g); }
 .rail-ctrl { display: flex; align-items: center; gap: 16px; padding: 6px 4% 0; }
 .rail-ctrl button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--g); cursor: pointer; transition: .2s; }
@@ -149,7 +149,7 @@ a { color: inherit; }
 .certs-visual-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 26px; }
 .cert { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: .3s var(--ease); }
 .cert:hover { transform: translateY(-5px); border-color: rgba(61,255,154,.5); }
-.cert img { width: 100%; height: 150px; object-fit: cover; cursor: zoom-in; border-bottom: 1px solid var(--line); }
+.cert img { width: 100%; aspect-ratio: 4/3; height: auto; object-fit: contain; background: #050a07; cursor: zoom-in; border-bottom: 1px solid var(--line); }
 .cert-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .cert h4 { font-size: 14px; line-height: 1.4; font-weight: 600; }
 .muted { color: var(--muted); font-family: var(--mono); font-size: 12px; }
@@ -193,7 +193,7 @@ footer { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padd
     .block { padding: 70px 4%; }
     .projects-grid, .yt-list, .chips-col { grid-template-columns: 1fr; }
     .project, .skill-panel { padding: 24px; }
-    .certs-visual-grid { grid-template-columns: 1fr; } .cert img { height: 190px; }
+    .certs-visual-grid { grid-template-columns: 1fr; } .cert img { height: auto; }
     .btn { flex: 1 1 100%; } .scroll-hint { display: none; }
     .mission { padding: 20px; }
 }
